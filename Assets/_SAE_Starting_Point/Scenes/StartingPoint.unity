@@ -20469,6 +20469,11 @@ PrefabInstance:
       objectReference: {fileID: 2729281214152228921}
     - target: {fileID: 7506994357588175214, guid: 6de197a9644f21a499717a9f53e3fda4,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7506994357588175214, guid: 6de197a9644f21a499717a9f53e3fda4,
+        type: 3}
       propertyPath: viewAngle
       value: 90
       objectReference: {fileID: 0}
