@@ -12,14 +12,14 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         //RotateTowardsPlayer();
-        MoveTowardsPlayer();
+        // MoveTowardsPlayer();
     }
 
     public void RotateTowardsPlayer()
@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(newDirection);
     }
 
-    private void MoveTowardsPlayer()
+    public void MoveTowardsPlayer()
     {
         float moveSpeed = walkSpeed;
 
@@ -47,6 +47,6 @@ public class Enemy : MonoBehaviour
         var moveStep = moveSpeed * Time.deltaTime;
 
         transform.position = Vector3.MoveTowards(transform.position, TargetPlayer.position, moveStep);
-    } 
+    }
 
 }

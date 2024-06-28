@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySenses : Enemy
+public class EnemySenses : MonoBehaviour
 {
 
     public float viewRadius;
@@ -13,11 +13,14 @@ public class EnemySenses : Enemy
     public LayerMask obstacleMask;
 
     public GameObject player;
+    public GunSystem gunSystem;
+    public Enemy enemy;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gunSystem = GetComponentInChildren<GunSystem>();
+        enemy = GetComponentInChildren<Enemy>();
     }
 
     // Update is called once per frame
@@ -30,9 +33,19 @@ public class EnemySenses : Enemy
             float distanceToTarget = Vector3.Distance(transform.position, player.transform.position);
             if (distanceToTarget <= viewRadius)
             {
+
                 if (Physics.Raycast(transform.position, playerTarget, distanceToTarget, obstacleMask) == false)
                 {
-                    Debug.Log("I see you!");
+                    Debug.Log("I can see you!");
+                    if (gunSystem != null)
+                    {
+                        gunSystem.Fire();
+                    }
+                    if (enemy != null)
+                    {
+                        enemy.RotateTowardsPlayer();
+                        enemy.MoveTowardsPlayer();
+                    }
                 }
             }
         }

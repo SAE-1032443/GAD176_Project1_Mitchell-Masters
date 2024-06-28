@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] float projectileSpeed = 600f;
+    [SerializeField] float projectileSpeed = 9000f;
 
     private Rigidbody rb;
 
@@ -12,9 +12,10 @@ public class Projectile : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Impulse();
+        Destroy(gameObject, 1);
     }
     private void Impulse()
     {
-        rb.AddForce(transform.forward * projectileSpeed, ForceMode.Impulse);
+        //rb.AddForce(transform.forward * projectileSpeed, ForceMode.Impulse);
     }
 }
