@@ -41,7 +41,7 @@ public class EnemySenses : MonoBehaviour
                     {
                         gunSystem.Fire();
                     }
-                    if (enemy != null)
+                    if(enemy != null)
                     {
                         enemy.RotateTowardsPlayer();
                         enemy.MoveTowardsPlayer();

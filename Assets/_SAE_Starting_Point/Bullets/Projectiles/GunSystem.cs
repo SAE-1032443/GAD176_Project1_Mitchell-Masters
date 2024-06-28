@@ -6,8 +6,8 @@ public class GunSystem : MonoBehaviour
 {
     [SerializeField] float rateOfFire = 1f;
     [SerializeField] private Rigidbody Projectile;
-    private int ProjectileSpeed = 10;
-    private float FireRate = 10;  // The number of bullets fired per second
+    private int ProjectileSpeed = 100;
+    private float FireRate = 2;  // The number of bullets fired per second
     private float lastfired;      // The value of Time.time at the last firing moment
 
     private void Start()
@@ -16,13 +16,7 @@ public class GunSystem : MonoBehaviour
     }
     private void Update()
     {
-        if (Time.time - lastfired > 1 / FireRate)
-        {
-            lastfired = Time.time;
-            Rigidbody clone;
-            clone = Instantiate(Projectile, transform.position, transform.rotation);
-            clone.velocity = transform.TransformDirection(Vector3.forward * ProjectileSpeed);
-        }
+
     }
     public float GetRateOffFire()
     {
@@ -30,6 +24,13 @@ public class GunSystem : MonoBehaviour
     }
     public void Fire()
     {
-        Instantiate(Projectile, transform.position, transform.rotation);
+        if (Time.time - lastfired > 1 / FireRate)
+        {
+            lastfired = Time.time;
+            Rigidbody clone;
+            clone = Instantiate(Projectile, transform.position, transform.rotation);
+            clone.velocity = transform.TransformDirection(Vector3.forward * ProjectileSpeed);
+        }
+   
     }
 }
