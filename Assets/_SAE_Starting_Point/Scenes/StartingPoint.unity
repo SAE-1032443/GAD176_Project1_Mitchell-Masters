@@ -20319,6 +20319,11 @@ PrefabInstance:
       propertyPath: TargetPlayer
       value: 
       objectReference: {fileID: 1194956583}
+    - target: {fileID: 3174630620079678964, guid: 574ee81d44f57e340a4147f7f3448d9e,
+        type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 7481396072392710952, guid: 574ee81d44f57e340a4147f7f3448d9e,
         type: 3}
       propertyPath: m_target
@@ -20495,7 +20500,7 @@ PrefabInstance:
     - target: {fileID: 7506994357588175214, guid: 6de197a9644f21a499717a9f53e3fda4,
         type: 3}
       propertyPath: obstacleMask.m_Bits
-      value: 1
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
