@@ -28,6 +28,7 @@ public class EnemySenses : MonoBehaviour
     {
         Vector3 playerTarget = (player.transform.position - transform.position).normalized;
 
+        //Checks if player is in line-of-sight
         if (Vector3.Angle(transform.forward, playerTarget) < viewAngle / 2)
         {
             float distanceToTarget = Vector3.Distance(transform.position, player.transform.position);
@@ -36,12 +37,16 @@ public class EnemySenses : MonoBehaviour
 
                 if (Physics.Raycast(transform.position, playerTarget, distanceToTarget, obstacleMask) == false)
                 {
+                    //Checks to see what type of object this script is attached too and runs it's functions
+
+                    //Turret Enemy
                     Debug.Log("I can see you!");
                     if (gunSystem != null)
                     {
                         gunSystem.Fire();
                     }
-                    if(enemy != null)
+                    //BuzzSaw Enemey
+                    if (enemy != null)
                     {
                         enemy.RotateTowardsPlayer();
                         enemy.MoveTowardsPlayer();
